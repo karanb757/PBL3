@@ -8,12 +8,13 @@ import { usePathname } from 'next/navigation'
 import { cn } from "../../lib/utils";  
 import { cva } from 'class-variance-authority'
 import { UserButton } from '@clerk/nextjs'
+import { useUser } from '@clerk/nextjs'
 
 
 const Header = () => {
 
   const path = usePathname();
-  const {user,isSignedIn} = useState();
+  const { user, isSignedIn } = useUser();
 
   useEffect(()=>{
     console.log(path)
@@ -22,15 +23,19 @@ const Header = () => {
   return (
     <div className='p-6 px-10 flex justify-between shadow-sm fixed top-0 w-full z-10 bg-white'>
       <div className='flex gap-10'>
-        <Image src={'logo.svg'} 
+      <Link href={'/'}>
+      <Image 
+        src={'/logo.svg'} 
         width={150}
         height={150}
         alt='logo'
-        />
+        className='cursor-pointer'
+      />
+    </Link>
 
         <ul className='hidden md:flex gap-10 items-center'>
           <Link href={'/'}>
-          <li className={`'hover:text-[#7f57f1] font-medium text-sm cursor-pointer' ${path=='/' && 'text-[#7f57f1]' }`}>For Sale</li>
+          <li className={`'hover:text-[#7f57f1] font-medium text-sm cursor-pointer' ${path=='/' && 'text-[#7f57f1]' }`}>For Sell</li>
           </Link>
           <li className='hover:text-[#7f57f1] font-medium text-sm cursor-pointer'>For Rent</li>
           <li className='hover:text-[#7f57f1] font-medium text-sm cursor-pointer'>Agent Finder</li>

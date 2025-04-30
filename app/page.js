@@ -1,10 +1,11 @@
+import { Divide } from "lucide-react";
 import { Button } from "../components/ui/button.jsx";
-import Image from "next/image";
+import ListingMapView from './_components/ListingMapView.jsx'
 
 export default function Home() {
   return (
-    <div>
-      
-    </div>
+      <div className="px-5">
+          <ListingMapView type='Sell'/>
+      </div>
   );
 }
