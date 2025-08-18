@@ -11,7 +11,7 @@ const Provider = ({children}) => {
     </div>
   )
 }
-
 export default Provider
+
 
 
